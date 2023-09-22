@@ -9,7 +9,7 @@ namespace advanturegame
 {
     internal class Program
     {
-
+        const int COUNT_RACERS = 20;
         static Auto mijnAuto = null;
        
 
@@ -37,22 +37,22 @@ namespace advanturegame
                 throw new ArgumentException("Car speed moet tussen 1 en 10 liggen.");
             }
 
-            int[] positions = new int[20];
-            double[] positionChances = new double[20];
+            int[] positions = new int[COUNT_RACERS];
+            double[] positionChances = new double[COUNT_RACERS];
 
-            for (int i = 1; i < 20; i++)
+            for (int i = 1; i < COUNT_RACERS; i++)
             {
                 
                 positionChances[i] = (carSpeed / 10.0) * (1.0 / (i + 1));
             }
 
-            for (int i = 1; i < 20; i++)
+            for (int i = 1; i < COUNT_RACERS; i++)
             {
                 double randomValue = new Random().NextDouble();
 
                 double cumulativeChance = 0;
 
-                for (int j = 1; j < 20; j++)
+                for (int j = 1; j < COUNT_RACERS; j++)
                 {
                     cumulativeChance += positionChances[j];
 
@@ -214,18 +214,21 @@ namespace advanturegame
             int[] positions = GeneratePositions(mijnAuto.CarSpeed);
             Random random = new Random();
             int position = positions[random.Next(20)];
-
             
-
+            // start race 1
             GeneratePositions(mijnAuto.CarSpeed);
+
             if (input3 == "ja")
             {
                 mijnAuto.CarSpeed--;
             }
+
             Console.WriteLine($"Je bent P{position} geworden");
             Console.WriteLine("Click op enter om de race te beginnen zorg dat je klaar staat voor de start ");
             Console.ReadLine();
+
             int lightDelay = random.Next(3000, 7000); 
+
             Console.WriteLine("Wacht seconden tot het licht aangaat en click op enter...");
             Thread.Sleep(lightDelay);
 
@@ -233,7 +236,6 @@ namespace advanturegame
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            
             Console.WriteLine("Licht is aan!");
             Console.ReadLine();
 
@@ -255,7 +257,7 @@ namespace advanturegame
             Console.WriteLine("Met nog 15 ronden te gaan en iedereen op oude hardbanden, sta jij voor een cruciale beslissing: overschakelen naar zachte banden voor een snelheid van 1:34.300 per ronde en een pitstop van 21 seconden, of trouw blijven aan de harde banden met een gemiddelde rondetijd van 1:40:010. Wat wordt jouw strategie op de safety car je hebt 45 seconden om een keuze te maken ");
             Console.WriteLine("A :BOX BOX");
             Console.WriteLine("B :Blijf rijden");
-           var output4 = Console.ReadLine();
+            var output4 = Console.ReadLine();
 
             if (output4 == "a") 
             {
