@@ -11,23 +11,25 @@ namespace advanturegame
     {
         const int COUNT_RACERS = 20;
         static Auto mijnAuto = null;
-       
-
+      
         static void DisplayInformation(string team, string statusfan, string statusteam, int reservemoter, int moterschade)
         {
             Console.SetCursorPosition(Console.WindowWidth - 60, 0);
-            Console.WriteLine($"Team: {team}");
+            Console.WriteLine("Doel: eerste worden in het werld kampioenaschap");
 
             Console.SetCursorPosition(Console.WindowWidth - 60, 1);
-            Console.WriteLine($"Status Fan: {statusfan}");
+            Console.WriteLine($"Team: {team}");
 
             Console.SetCursorPosition(Console.WindowWidth - 60, 2);
-            Console.WriteLine($"Status Team: {statusteam}");
+            Console.WriteLine($"Status Fan: {statusfan}");
 
             Console.SetCursorPosition(Console.WindowWidth - 60, 3);
-            Console.WriteLine($"Reserve Motor: {reservemoter}/3");
+            Console.WriteLine($"Status Team: {statusteam}");
 
             Console.SetCursorPosition(Console.WindowWidth - 60, 4);
+            Console.WriteLine($"Reserve Motor: {reservemoter}/3");
+
+            Console.SetCursorPosition(Console.WindowWidth - 60, 5);
             Console.WriteLine($"Motorschade: {moterschade}/100");
         }
         static int[] GeneratePositions(int carSpeed)
@@ -85,7 +87,6 @@ namespace advanturegame
             
         }
 
-
         static int CalculatePositionModifier(TimeSpan reactionTime)
         
         {
@@ -116,7 +117,6 @@ namespace advanturegame
             }
         }
 
-
         static void Main(string[] args)
         {
 
@@ -128,7 +128,6 @@ namespace advanturegame
             Console.WriteLine("C: Porsche F1     (het is een nieuw f1 team dus het is nog onduidleijk wat ze kunnen maar ze beloven heel veel)\n");
             var input1 = Console.ReadLine();
             
-
             if (input1 == "a")
             {
                 mijnAuto = new Auto("Ferrari", "hoog", "gemideld", 3, 12, 3);
@@ -192,8 +191,8 @@ namespace advanturegame
             Console.WriteLine("NEE");
 
             var input3 = Console.ReadLine();
-            Console.Clear();
 
+            Console.Clear();
             DisplayInformation(mijnAuto.Team, mijnAuto.StatusFan, mijnAuto.StatusTeam, mijnAuto.ReserveMoter, mijnAuto.MoterSchade);
 
             if (input3 == "ja")
@@ -228,11 +227,8 @@ namespace advanturegame
             Console.ReadLine();
 
             int lightDelay = random.Next(3000, 7000); 
-
             Console.WriteLine("Wacht seconden tot het licht aangaat en click op enter...");
             Thread.Sleep(lightDelay);
-
-            
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
@@ -240,7 +236,6 @@ namespace advanturegame
             Console.ReadLine();
 
             stopwatch.Stop();
-
             TimeSpan reactionTime = stopwatch.Elapsed;
             Console.WriteLine($"Je reactietijd was: {reactionTime.TotalMilliseconds} milliseconden");
 
@@ -251,9 +246,7 @@ namespace advanturegame
                 position = 1;   
             }
             
-
             Console.WriteLine($"je bent P{position}");
-
             Console.WriteLine("Met nog 15 ronden te gaan en iedereen op oude hardbanden, sta jij voor een cruciale beslissing: overschakelen naar zachte banden voor een snelheid van 1:34.300 per ronde en een pitstop van 21 seconden, of trouw blijven aan de harde banden met een gemiddelde rondetijd van 1:40:010. Wat wordt jouw strategie op de safety car je hebt 45 seconden om een keuze te maken ");
             Console.WriteLine("A :BOX BOX");
             Console.WriteLine("B :Blijf rijden");
@@ -280,10 +273,9 @@ namespace advanturegame
             mijnAuto.MoterSchade += 20;
             Console.WriteLine("klik op enter om door te gaan");
             Console.ReadKey();
+
             Console.Clear();
-
             DisplayInformation(mijnAuto.Team, mijnAuto.StatusFan, mijnAuto.StatusTeam, mijnAuto.ReserveMoter, mijnAuto.MoterSchade);
-
 
             Console.WriteLine("je moter heeft schade opgelopen je hebt heel het seizoen 3 moters zodra je moter boven de 70 komt zal je snelheid minderen je hebt 3 moteren dit seizoen benut ze goed ");
             motervervangen();
@@ -291,19 +283,16 @@ namespace advanturegame
             Console.WriteLine("klik op enter om door te gaan naar de volgende race");
 
             Console.Clear();
-
             DisplayInformation(mijnAuto.Team, mijnAuto.StatusFan, mijnAuto.StatusTeam, mijnAuto.ReserveMoter, mijnAuto.MoterSchade);
 
 
             Console.WriteLine("monaco is de volgende race de qwalificatie is hier het belangrijkste aangezien je hier bijna niet kan inhalen daarom moet je goed je auto afstellen je krijgt vragen die je goed beantwoord word je auto sneller ");
-
             Console.WriteLine("heb je in monaco veel downforce nodig of heb je hier juist liever minder downforce");
             Console.WriteLine("A: veel downforce");
             Console.WriteLine("B: weinig downforce");
             var antwoord1 =Console.ReadLine();
 
             Console.Clear();
-
             DisplayInformation(mijnAuto.Team, mijnAuto.StatusFan, mijnAuto.StatusTeam, mijnAuto.ReserveMoter, mijnAuto.MoterSchade);
 
             Console.WriteLine("hoe veel liter benzine gebruikt een formula 1 auto per race ");
@@ -314,7 +303,6 @@ namespace advanturegame
             var antwoord2 = Console.ReadLine();
 
             Console.Clear();
-
             DisplayInformation(mijnAuto.Team, mijnAuto.StatusFan, mijnAuto.StatusTeam, mijnAuto.ReserveMoter, mijnAuto.MoterSchade);
 
             Console.WriteLine("wat is de beste techniek om in het regen snel te rijden");
@@ -326,7 +314,6 @@ namespace advanturegame
             var antwoord3= Console.ReadLine();
 
             Console.Clear();
-
             DisplayInformation(mijnAuto.Team, mijnAuto.StatusFan, mijnAuto.StatusTeam, mijnAuto.ReserveMoter, mijnAuto.MoterSchade);
 
 
@@ -339,7 +326,6 @@ namespace advanturegame
             var antwoord4 = Console.ReadLine();
 
             Console.Clear();
-
             DisplayInformation(mijnAuto.Team, mijnAuto.StatusFan, mijnAuto.StatusTeam, mijnAuto.ReserveMoter, mijnAuto.MoterSchade);
 
 
@@ -348,6 +334,8 @@ namespace advanturegame
             Console.WriteLine("B: dat je niet mag inhalen");
             Console.WriteLine("C: dat het glad is ");
             Console.WriteLine("D: dat je auto kapot is");
+
+            mijnAuto.MoterSchade += 10;
 
             var antwoord5 = Console.ReadLine();
             int punten = 0;
@@ -401,8 +389,8 @@ namespace advanturegame
             Console.WriteLine($"je had {punten} vragen goed");
 
             Console.Clear();
-
             DisplayInformation(mijnAuto.Team, mijnAuto.StatusFan, mijnAuto.StatusTeam, mijnAuto.ReserveMoter, mijnAuto.MoterSchade);
+
             GeneratePositions(mijnAuto.CarSpeed);
             if (punten == 5)
             {
@@ -432,21 +420,18 @@ namespace advanturegame
             Console.WriteLine($"Je bent P{position} geworden");
             Console.WriteLine("Click op enter om de race te beginnen zorg dat je klaar staat voor de start ");
             Console.ReadLine();
+
             lightDelay = random.Next(3000, 7000);
             Console.WriteLine("Wacht seconden tot het licht aangaat en click op enter...");
             Thread.Sleep(lightDelay);
-
-
-             stopwatch = new Stopwatch();
+            stopwatch = new Stopwatch();
             stopwatch.Start();
-
-
             Console.WriteLine("Licht is aan!");
+
             Console.ReadLine();
-
             stopwatch.Stop();
-
             reactionTime = stopwatch.Elapsed;
+
             Console.WriteLine($"Je reactietijd was: {reactionTime.TotalMilliseconds} milliseconden");
 
             position = CalculatePositionModifier(reactionTime);
@@ -455,6 +440,42 @@ namespace advanturegame
 
                 position = 1;
             }
+
+            Console.WriteLine($"je bent P{position}");
+            Console.WriteLine($"het was onmogelijk om inthalen zoals verwacht je bent p{position} geworden");
+            Console.WriteLine("klik op enter om door te gaan ");
+            Console.ReadLine();
+
+            mijnAuto.MoterSchade += 22;
+
+            Console.Clear();
+            DisplayInformation(mijnAuto.Team, mijnAuto.StatusFan, mijnAuto.StatusTeam, mijnAuto.ReserveMoter, mijnAuto.MoterSchade);
+
+            static void motervervangen()
+            {
+                Console.WriteLine("wil je je moter vervangen voor de volgende race ");
+                Console.WriteLine("JA");
+                Console.WriteLine("NEE");
+                var input5 = Console.ReadLine();
+                if (input5 == "ja")
+                {
+                    mijnAuto.ReserveMoter -= 1;
+                    mijnAuto.MoterSchade = 0;
+                }
+                Console.Clear();
+
+                DisplayInformation(mijnAuto.Team, mijnAuto.StatusFan, mijnAuto.StatusTeam, mijnAuto.ReserveMoter, mijnAuto.MoterSchade);
+
+
+            }
+
+            Console.WriteLine("meer races komen er binnen kort aan :)");
+
+
+
+
+
+
 
         }
     }
