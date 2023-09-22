@@ -42,19 +42,19 @@ namespace advanturegame
             int[] positions = new int[COUNT_RACERS];
             double[] positionChances = new double[COUNT_RACERS];
 
-            for (int i = 1; i < COUNT_RACERS; i++)
+            for (int i = 0; i < COUNT_RACERS; i++)
             {
                 
                 positionChances[i] = (carSpeed / 10.0) * (1.0 / (i + 1));
             }
 
-            for (int i = 1; i < COUNT_RACERS; i++)
+            for (int i = 0; i < COUNT_RACERS; i++)
             {
                 double randomValue = new Random().NextDouble();
 
                 double cumulativeChance = 0;
 
-                for (int j = 1; j < COUNT_RACERS; j++)
+                for (int j = 0; j < COUNT_RACERS; j++)
                 {
                     cumulativeChance += positionChances[j];
 
@@ -101,7 +101,7 @@ namespace advanturegame
             }
             else if (reactionTime.TotalMilliseconds < 250)
             {
-                return +0; 
+                return +1 -1; 
             }
             else if (reactionTime.TotalMilliseconds < 300)
             {
@@ -240,7 +240,7 @@ namespace advanturegame
             Console.WriteLine($"Je reactietijd was: {reactionTime.TotalMilliseconds} milliseconden");
 
             position = CalculatePositionModifier(reactionTime);
-            if (position == 0)
+            if (position <= 0)
             {
 
                 position = 1;   
@@ -383,7 +383,7 @@ namespace advanturegame
             }
             if (punten == 0)
             {
-                mijnAuto.CarSpeed -=3;
+                mijnAuto.CarSpeed -=2;
             }
 
             Console.WriteLine($"je had {punten} vragen goed");
